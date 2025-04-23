@@ -1,0 +1,17 @@
+
+app = "ultra3-2"
+kill_signal = "SIGINT"
+kill_timeout = 5
+[env]
+PORT = "8080"
+[experimental]
+auto_rollback = true
+[[services]]
+internal_port = 8080
+protocol = "tcp"
+  [[services.ports]]
+  handlers = ["http"]
+  port = 80
+  [[services.ports]]
+  handlers = ["tls", "http"]
+  port = 443
